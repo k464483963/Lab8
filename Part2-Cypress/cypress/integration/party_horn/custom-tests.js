@@ -101,11 +101,9 @@ describe('Party Horn Tests', () => {
   });
   it('enter the number out of range', () => {
 
-    cy.get('#volume-number').invoke('val',111).trigger('input').invalid
     
-    // cy.get('#honk-btn').then($el =>{
-    //   expect($el).to.have.attr(invalid);
-    // })
+    cy.get('#volume-number').clear().type(101)
+    cy.get('input:invalid').should('have.length',1)
     
   });
 
